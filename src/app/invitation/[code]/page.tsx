@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function InvitationPage({
   params,
 }: {
-  params: { code: string };
+  params: Promise<{ code: string }>;
 }) {
   const { code } = await params;
 
