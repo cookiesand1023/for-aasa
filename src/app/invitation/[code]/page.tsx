@@ -17,7 +17,7 @@ export default async function InvitationPage({
   const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
 
-  const deepLinkUrl = `https://www.cookiesand1023.com/invitation/${code}`;
+  const deepLinkUrl = `https://link.cookiesand1023.com/invitation/${code}`;
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
