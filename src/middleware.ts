@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const redirectPaths = ['invitation'];
+// const redirectPaths = ['invitation'];
 
 
 export function middleware(request: NextRequest) {
-  const hostname = request.headers.get('host');
-  const pathname = request.nextUrl.pathname;
+  // const hostname = request.headers.get('host');
+  // const pathname = request.nextUrl.pathname;
 
   // if (hostname === 'link.cookiesand1023.com') {
   //   const hasRedirectFlag = request.headers.get('x-redirect-flag');
