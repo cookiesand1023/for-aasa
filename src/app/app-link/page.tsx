@@ -12,12 +12,16 @@ export default async function InvitationPage({
                                              }: {
   params: Promise<{ code: string }>;
 }) {
+  console.log("[DEBUG_LOG] Rendering AppLinkPage");
+
   const { code } = await params;
+  console.log("[DEBUG_LOG] App link code parameter:", code);
 
   const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
 
   const deepLinkUrl = `https://www.cookiesand1023.com/invitation/${code}`;
+  console.log("[DEBUG_LOG] Generated app deep link URL:", deepLinkUrl);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
