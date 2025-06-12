@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   description: "Open this invitation in the YouPace app for the best experience",
 };
 
-export default async function AppLinkPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ code?: string }>;
+export default async function InvitationPage({
+                                               params,
+                                             }: {
+  params: Promise<{ code: string }>;
 }) {
-  const { code = '' } = await searchParams;
+  const { code } = await params;
 
   const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
