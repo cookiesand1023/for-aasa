@@ -9,6 +9,11 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (hostname === 'link.cookiesand1023.com') {
+    const hasRedirectFlag = request.headers.get('x-redirect-flag');
+    if (hasRedirectFlag) {
+      console.log("[DEBUG_LOG] Redirect flag detected, preventing loop");
+      return NextResponse.next();
+    }
 
     // パスの最初のセグメントを取得（/invitation/code から invitation を取得）
     const pathSegments = pathname.split('/').filter(Boolean);
@@ -30,7 +35,11 @@ export function middleware(request: NextRequest) {
       url.pathname = '/redirect';
       url.search = `?path=${encodeURIComponent(pathname)}`;
 
-      return NextResponse.redirect(url);
+      const response = NextResponse.redirect(url);
+      response.headers.set('x-redirect-flag', '1');
+      console.log("[DEBUG_LOG] Setting redirect flag header");
+
+      return response;
     }
 
     return new NextResponse(null, { status: 404 });
