@@ -22,12 +22,12 @@ export function middleware(request: NextRequest) {
     const basePath = pathSegments[0];
     console.log("[DEBUG_LOG] Base path:", basePath);
 
-    if (!redirectPaths.includes(basePath)) {
-      return new NextResponse(null, { status: 404 });
-    }
-
     if (basePath === 'redirect') {
       return NextResponse.next();
+    }
+
+    if (!redirectPaths.includes(basePath)) {
+      return new NextResponse(null, { status: 404 });
     }
 
     if (basePath === 'invitation') {
