@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       {
         source: '/invitation',
         has: [{ type: 'host', value: 'link.cookiesand1023.com' }],
-        destination: '/app/app-link',
+        destination: '/app-link',
       },
     ];
   },
