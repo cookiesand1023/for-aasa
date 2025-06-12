@@ -26,6 +26,10 @@ export function middleware(request: NextRequest) {
       return new NextResponse(null, { status: 404 });
     }
 
+    if (basePath === 'redirect') {
+      return NextResponse.next();
+    }
+
     if (basePath === 'invitation') {
       const code = pathSegments[1] || '';
       console.log("[DEBUG_LOG] Invitation code:", code);
