@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host');
   const pathname = request.nextUrl.pathname;
 
-  if (hostname === 'redirect.cookiesand1023.com') {
+  if (hostname === 'link.cookiesand1023.com') {
 
     // パスの最初のセグメントを取得（/invitation/code から invitation を取得）
     const pathSegments = pathname.split('/').filter(Boolean);
