@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host');
   const pathname = request.nextUrl.pathname;
 
-  if (hostname === 'test.cookiesand1023.com') {
+  if (hostname === 'link.cookiesand1023.com') {
     const hasRedirectFlag = request.headers.get('x-redirect-flag');
     if (hasRedirectFlag) {
       console.log("[DEBUG_LOG] Redirect flag detected, preventing loop");
