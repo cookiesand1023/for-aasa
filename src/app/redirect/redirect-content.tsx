@@ -12,7 +12,7 @@ export default function RedirectContent() {
     console.log("[DEBUG_LOG] Decoded path:", decodedPath);
 
     if (decodedPath?.startsWith("/invitation/")) {
-      const redirectUrl = `https://www.cookiesand1023.com/${decodedPath}`;
+      const redirectUrl = `https://www.cookiesand1023.com${decodedPath}`;
       console.log("[DEBUG_LOG] Redirecting to:", redirectUrl);
       window.location.href = redirectUrl;
     } else {
