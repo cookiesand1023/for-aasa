@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 // const redirectPaths = ['invitation'];
 
 
-export function middleware(request: NextRequest) {
+export function middleware() {
   // const hostname = request.headers.get('host');
   // const pathname = request.nextUrl.pathname;
 
