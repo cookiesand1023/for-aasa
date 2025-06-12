@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default async function AppLinkPage({
   searchParams,
 }: {
-  searchParams: { code?: string };
+  searchParams: Promise<{ code?: string }>;
 }) {
-  const code = searchParams.code || '';
+  const { code = '' } = await searchParams;
 
   const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
