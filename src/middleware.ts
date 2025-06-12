@@ -7,17 +7,8 @@ const redirectPaths = ['invitation'];
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host');
   const pathname = request.nextUrl.pathname;
-  const query = request.nextUrl.search;
 
-  console.log("[DEBUG_LOG] Middleware processing request:", { hostname, pathname, query });
-
-  if (hostname === 'link.cookiesand1023.com') {
-    console.log("[DEBUG_LOG] Hostname matches 'link.cookiesand1023.com'");
-
-    if (pathname === '/redirect') {
-      console.log("[DEBUG_LOG] Path is '/redirect', skipping middleware processing");
-      return NextResponse.next();
-    }
+  if (hostname === 'redirect.cookiesand1023.com') {
 
     // パスの最初のセグメントを取得（/invitation/code から invitation を取得）
     const pathSegments = pathname.split('/').filter(Boolean);
@@ -27,28 +18,21 @@ export function middleware(request: NextRequest) {
     console.log("[DEBUG_LOG] Base path:", basePath);
 
     if (!redirectPaths.includes(basePath)) {
-      console.log("[DEBUG_LOG] Base path not in redirect paths list, returning 404");
       return new NextResponse(null, { status: 404 });
     }
 
     if (basePath === 'invitation') {
-      console.log("[DEBUG_LOG] Processing 'invitation' path");
-
       const code = pathSegments[1] || '';
       console.log("[DEBUG_LOG] Invitation code:", code);
 
       const url = request.nextUrl.clone();
-      const distPath = `https://www.cookiesand1023.com/invitation/${code}`;
-      console.log("[DEBUG_LOG] Destination path:", distPath);
 
       url.pathname = '/redirect';
-      url.search = `?path=${encodeURIComponent(distPath)}`;
-      console.log("[DEBUG_LOG] Rewriting URL to:", url.toString());
+      url.search = `?path=${encodeURIComponent(pathname)}`;
 
-      return NextResponse.rewrite(url);
+      return NextResponse.redirect(url);
     }
 
-    console.log("[DEBUG_LOG] No matching path handler, returning 404");
     return new NextResponse(null, { status: 404 });
   }
 
