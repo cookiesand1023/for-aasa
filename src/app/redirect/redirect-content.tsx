@@ -22,7 +22,7 @@ export default function RedirectContent() {
       setTimeout(() => {
         console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
         window.location.href = appStoreUrl;
-      }, 500);
+      }, 10);
 
     } else {
       console.log("[DEBUG_LOG] No redirection - path doesn't start with 'invitation/'");
