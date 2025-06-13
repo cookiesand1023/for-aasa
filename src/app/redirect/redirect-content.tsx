@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function RedirectContent() {
   const params = useSearchParams();
 
-  const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
+  const appStoreUrl = "https://apps.apple.com/jp/app/youpace-fans/id6466339433";
 
   useEffect(() => {
     const path = params.get("path");
