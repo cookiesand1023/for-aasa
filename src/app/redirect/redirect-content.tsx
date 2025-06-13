@@ -6,6 +6,8 @@ import { useEffect } from "react";
 export default function RedirectContent() {
   const params = useSearchParams();
 
+  const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
+
   useEffect(() => {
     const path = params.get("path");
     const decodedPath = path ? decodeURIComponent(path) : null;
@@ -15,6 +17,13 @@ export default function RedirectContent() {
       const redirectUrl = `https://www.cookiesand1023.com${decodedPath}`;
       console.log("[DEBUG_LOG] Redirecting to:", redirectUrl);
       window.location.href = redirectUrl;
+
+      // 遷移できなかったらアプリインストールページへ
+      setTimeout(() => {
+        console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
+        window.location.href = appStoreUrl;
+      }, 1000); // 5秒後にアプリストアへリダイレクト
+
     } else {
       console.log("[DEBUG_LOG] No redirection - path doesn't start with 'invitation/'");
     }
