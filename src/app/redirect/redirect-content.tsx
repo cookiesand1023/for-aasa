@@ -19,10 +19,11 @@ export default function RedirectContent() {
       window.location.href = redirectUrl;
 
       // 遷移できなかったらアプリインストールページへ
-      setTimeout(() => {
-        console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
-        window.location.href = appStoreUrl;
-      }, 10);
+      window.location.href = appStoreUrl;
+      // setTimeout(() => {
+      //   console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
+      //   window.location.href = appStoreUrl;
+      // }, 10);
 
     } else {
       console.log("[DEBUG_LOG] No redirection - path doesn't start with 'invitation/'");
