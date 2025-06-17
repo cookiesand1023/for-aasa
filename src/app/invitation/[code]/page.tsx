@@ -21,19 +21,6 @@ export default async function InvitationPage({
   const appStoreUrl = "https://apps.apple.com/jp/app/youpace-fans/id6466339433";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
 
-  const redirectToApp = () => {
-    const deepLinkUrl = `youpacefans://invitation/${code}`;
-    console.log("[DEBUG_LOG] Redirecting to deep link URL:", deepLinkUrl);
-    window.location.href = deepLinkUrl;
-
-    // Fallback to app store if deep link fails
-    setTimeout(() => {
-      console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
-      window.location.href = appStoreUrl;
-    }, 500);
-
-  }
-
   const deepLinkUrl = `youpacefans://invitation/testtesttest`;
   console.log("[DEBUG_LOG] Generated deep link URL:", deepLinkUrl);
 
@@ -59,7 +46,7 @@ export default async function InvitationPage({
         </div>
 
         {/* Open in App button */}
-        <LinkButton onclick={redirectToApp} />
+        <LinkButton code={code} />
 
         {/* App store links */}
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
