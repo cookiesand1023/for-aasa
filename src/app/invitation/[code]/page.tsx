@@ -20,7 +20,7 @@ export default async function InvitationPage({
   const appStoreUrl = "https://apps.apple.com/app/youpacefans/id1234567890";
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.youpacefans.app";
 
-  const deepLinkUrl = `https://link.cookiesand1023.com/invitation/${code}`;
+  const deepLinkUrl = `youpacefans://invitation/testtesttest`;
   console.log("[DEBUG_LOG] Generated deep link URL:", deepLinkUrl);
 
   return (
