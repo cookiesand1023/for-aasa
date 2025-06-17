@@ -26,7 +26,11 @@ export default async function InvitationPage({
     window.location.href = deepLinkUrl;
 
     // Fallback to app store if deep link fails
-    window.location.href = appStoreUrl;
+    setTimeout(() => {
+      console.log("[DEBUG_LOG] Redirecting to app store URL:", appStoreUrl);
+      window.location.href = appStoreUrl;
+    }, 500);
+
   }
 
   const deepLinkUrl = `youpacefans://invitation/testtesttest`;
@@ -54,12 +58,12 @@ export default async function InvitationPage({
         </div>
 
         {/* Open in App button */}
-        <a
-          href={deepLinkUrl}
+        <div
+          onClick={redirectToApp}
           className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-base h-12 px-6 w-full sm:w-auto"
         >
           アプリで開く
-        </a>
+        </div>
 
         {/* App store links */}
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -68,7 +72,7 @@ export default async function InvitationPage({
           </p>
           <div className="flex gap-4">
             <a
-              onClick={redirectToApp}
+              href={appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm h-10 px-4"
