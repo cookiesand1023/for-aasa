@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import LinkButton from "@/app/invitation/[code]/LinkButton";
 
 // Generate metadata for SEO
 export const metadata: Metadata = {
@@ -58,12 +59,7 @@ export default async function InvitationPage({
         </div>
 
         {/* Open in App button */}
-        <div
-          onClick={redirectToApp}
-          className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-base h-12 px-6 w-full sm:w-auto"
-        >
-          アプリで開く
-        </div>
+        <LinkButton onclick={redirectToApp} />
 
         {/* App store links */}
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
